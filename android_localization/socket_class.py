@@ -1,5 +1,6 @@
 import socket
-class SympleServer:
+from android_localization.Events import RecieveEvent
+class SympleServer(metaclass = RecieveEvent):
     def __init__(self,host:str,port:int):
         print('server start')
         self.__socket = None
@@ -46,4 +47,4 @@ class SympleServer:
     def onRecieved(self, message:str) -> None:
         if self.socket_listener != None:
             self.socket_listener.onRecieved(message=message)
-        raise NotImplementedError()
+    
