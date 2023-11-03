@@ -1,4 +1,6 @@
 from setuptools import find_packages, setup
+import os
+from glob import glob
 
 package_name = 'android_localization'
 
@@ -10,6 +12,7 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share',package_name,package_name),glob('android_localization/*.py'))
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -20,6 +23,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'android_vps_node = android_localization.android_vps_node:main',
         ],
     },
 )
