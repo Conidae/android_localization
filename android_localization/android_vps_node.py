@@ -4,7 +4,7 @@ from android_localization.socket_class import SympleServer
 from rclpy.node import Node
 from sensor_msgs.msg import NavSatFix
 
-class AndroidVPSNode(Node,metaclas = SympleServer):
+class AndroidVPSNode(Node,metaclass = SympleServer):
     def __init__(self):
         super().__init__('android_vps_node')
         self.gps_publisher = self.create_publisher(NavSatFix,'gps/fix',1)
