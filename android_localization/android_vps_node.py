@@ -28,9 +28,12 @@ class AndroidVPSNode(Node,metaclass = RecieveEvent):
                 print(geo_poses[-2])
                 msg_list=geo_poses[-2].split(':')
                 msg_data=msg_list[1].split(',')
-                gps_msg.latitude=float(msg_data[0])
+                gps_msg.header.frame_id='android_camera'
+                gps_msg.header.stamp = self.get_clock().now().to_msg()
                 gps_msg.longitude=float(msg_data[1])
                 x,y,z,w=quaternion_from_euler(0,0,float(msg_data[2]),'ryxz')
+                imu_msg.header.stamp = self.get_clock().now().to_msg()
+                imu_msg.header.frame_id = 'android_camera'
                 imu_msg.orientation.x=x
                 imu_msg.orientation.y=y
                 imu_msg.orientation.z=z
