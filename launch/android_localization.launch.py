@@ -13,6 +13,14 @@ def generate_launch_description():
             executable='android_vps_node'
         ),
         Node(
+            package='android_localization',
+            executable='android_pose_node'
+        ),
+        Node(
+            package='android_localization',
+            executable='android_imu_node'
+        ),
+        Node(
             package='robot_localization',
             executable='ekf_node',
             name='ekf_filter_node_map',

@@ -26,6 +26,9 @@ setup(
     entry_points={
         'console_scripts': [
             'android_vps_node = android_localization.android_vps_node:main',
+            'android_pose_node = android_localization.android_pose_node:main',
+            'camera_odom_node = android_localization.camera_odom_node:main',
+            'android_imu_node = android_localization.android_imu_node:main'
         ],
     },
 )
