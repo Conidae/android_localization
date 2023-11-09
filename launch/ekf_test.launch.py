@@ -5,7 +5,7 @@ from ament_index_python.packages import get_package_share_directory
 
 
 def generate_launch_description():
-    ekf_config_path=os.path.join(get_package_share_directory('android_localization'),'config','test_ekf.yaml')
+    ekf_config_path=os.path.join(get_package_share_directory('android_localization'),'config','test2_ekf.yaml')
 
     return LaunchDescription([
         Node(
@@ -29,7 +29,7 @@ def generate_launch_description():
         Node(
             package='robot_localization',
             executable='ekf_node',
-            name='ekf_filter_node_test',
+            name='ekf_filter_node_odom',
             output='screen',
             parameters=[ekf_config_path],
             remappings=[('odometry/filtered', 'odometry/global'),
