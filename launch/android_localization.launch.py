@@ -42,7 +42,7 @@ def generate_launch_description():
             name='navsat_transform',
             output='screen',
             parameters=[ekf_config_path],
-            remappings=[('imu', 'imu/data'),
+            remappings=[('imu', 'android/imu'),
                         ('gps/fix', 'gps/fix'), 
                         ('gps/filtered', 'gps/filtered'),
                         ('odometry/gps', 'odometry/gps'),
