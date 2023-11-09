@@ -90,11 +90,11 @@ ekf_filter_node_odom:
 # has no pose information, so the first six values would be meaningless in that case. Each vector defaults to all false
 # if unspecified, effectively making this parameter required for each sensor.
         pose0_config: [true, true, false,
+                       false, false, true,
                        false, false, false,
-                       false, false,  true,
                        false, false, false,
                        false, false, false]
-
+                       
         #        [x_pos   , y_pos    , z_pos,
         #         roll    , pitch    , yaw,
         #         x_vel   , y_vel    , z_vel,
