@@ -47,26 +47,26 @@ class AndroidPoseNode(Node,metaclass = RecieveEvent):
                 android_imu_msg.angular_velocity.x=float(msg_data[3])
                 android_imu_msg.angular_velocity.y=float(msg_data[4])
                 android_imu_msg.angular_velocity.z=float(msg_data[5])
-                android_imu_msg.angular_velocity_covariance[0]=0.0001
-                android_imu_msg.angular_velocity_covariance[4]=0.0001
-                android_imu_msg.angular_velocity_covariance[8]=0.0001
+                android_imu_msg.angular_velocity_covariance[0]=0.01
+                android_imu_msg.angular_velocity_covariance[4]=0.01
+                android_imu_msg.angular_velocity_covariance[8]=0.01
                 
 
                 android_imu_msg.linear_acceleration.x=float(msg_data[6])
                 android_imu_msg.linear_acceleration.y=float(msg_data[7])
                 android_imu_msg.linear_acceleration.z=float(msg_data[8])
-                android_imu_msg.linear_acceleration_covariance[0]=0.0001
-                android_imu_msg.linear_acceleration_covariance[4]=0.0001
-                android_imu_msg.linear_acceleration_covariance[8]=0.0001
+                android_imu_msg.linear_acceleration_covariance[0]=0.01
+                android_imu_msg.linear_acceleration_covariance[4]=0.01
+                android_imu_msg.linear_acceleration_covariance[8]=0.01
                 #configure imu
                 android_imu_msg.header.frame_id = 'android_camera'
                 android_imu_msg.orientation.x=x
                 android_imu_msg.orientation.y=y
                 android_imu_msg.orientation.z=z
                 android_imu_msg.orientation.w=w
-                android_imu_msg.orientation_covariance[0]=0.0001
-                android_imu_msg.orientation_covariance[4]=0.0001
-                android_imu_msg.orientation_covariance[8]=0.0001
+                android_imu_msg.orientation_covariance[0]=0.01
+                android_imu_msg.orientation_covariance[4]=0.01
+                android_imu_msg.orientation_covariance[8]=0.01
 
 
                 
