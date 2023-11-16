@@ -5,7 +5,7 @@ from ament_index_python.packages import get_package_share_directory
 
 
 def generate_launch_description():
-    ekf_config_path=os.path.join(get_package_share_directory('android_localization'),'config','ekf_setting.yaml')
+    ekf_config_path=os.path.join(get_package_share_directory('android_localization'),'config','mono_ekf_setting.yaml')
 
     return LaunchDescription([
         Node(
@@ -37,6 +37,12 @@ def generate_launch_description():
             remappings=[('odometry/filtered', 'odometry/local'),
                         ('/set_pose', '/initialpose')]),
         Node(
+            package='tf2_ros',
+            executable = 'static_transform_publisher',
+            output = 'screen',
+            arguments = ['0.0','0.0','0.0','0.0','0.0','0.0','map','odom']
+        ),                
+        Node(
             package='robot_localization',
             executable='navsat_transform_node',
             name='navsat_transform',
@@ -45,7 +51,7 @@ def generate_launch_description():
             remappings=[('imu', 'android/imu'),
                         ('gps/fix', 'gps/fix'), 
                         ('gps/filtered', 'gps/filtered'),
-                        ('odometry/gps', 'odometry/gps'),
+                        ('oadometry/gps', 'odometry/gps'),
                         ('odometry/filtered', 'odometry/global')])
-
+                        
     ])
