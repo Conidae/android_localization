@@ -12,7 +12,7 @@ class AndroidPoseNode(Node,metaclass = RecieveEvent):
         super().__init__('android_imu_node')
         #declare timer and publish rate
         self.time=time.time()
-        self.rate=0.01#set publish interval
+        self.rate=0.05#set publish interval
         #create puvlishers
         self.android_imu_publisher = self.create_publisher(Imu,'android/imu',1)
         #get ip address from enviroment value.

@@ -11,7 +11,7 @@ class AndroidPoseNode(Node,metaclass = RecieveEvent):
         super().__init__('android_pose_node')
         #declare timer and publish rate
         self.time=time.time()
-        self.rate=0.01#set publish interval
+        self.rate=0.05#set publish interval
         #create puvlishers
         self.pose_publisher = self.create_publisher(PoseWithCovarianceStamped,'arcore/pose',1)
         #get ip address from enviroment value.
@@ -53,12 +53,12 @@ class AndroidPoseNode(Node,metaclass = RecieveEvent):
                 pose_msg.pose.pose.orientation.z = float(msg_data[4])#arcore(quat y)
                 pose_msg.pose.pose.orientation.w = float(msg_data[6])#arcore(quat w)
 
-                pose_msg.pose.covariance = [0.0001,0.0,0.0,0.0,0.0,0.0,
-                                            0.0,0.0001,0.0,0.0,0.0,0.0,
-                                            0.0,0.0,0.0,0001.0,0.0,0.0,
-                                            0.0,0.0,0.0,0.0001,0.0,0.0,
-                                            0.0,0.0,0.0,0.0,0.0001,0.0,
-                                            0.0,0.0,0.0,0.0,0.0,0.0001] #set covariance
+                pose_msg.pose.covariance = [0.001,0.0,0.0,0.0,0.0,0.0,
+                                            0.0,0.001,0.0,0.0,0.0,0.0,
+                                            0.0,0.0,0.0,001.0,0.0,0.0,
+                                            0.0,0.0,0.0,0.001,0.0,0.0,
+                                            0.0,0.0,0.0,0.0,0.001,0.0,
+                                            0.0,0.0,0.0,0.0,0.0,0.001] #set covariance
 
                 #pose_msg.pose.orientation.x = -float(msg_data[5])#arcore(quat z)
                 #pose_msg.pose.orientation.y = -float(msg_data[3])#arcore(quat x)

@@ -12,7 +12,7 @@ class AndroidVPSNode(Node,metaclass = RecieveEvent):
         super().__init__('android_vps_node')
         #declare timer and publish rate
         self.time=time.time()
-        self.rate=0.01#set publish interval
+        self.rate=0.05#set publish interval
         #create puvlishers
         self.gps_publisher = self.create_publisher(NavSatFix,'gps/fix',1)
         self.imu_publisher = self.create_publisher(Imu,'imu/data',1)
@@ -39,9 +39,9 @@ class AndroidVPSNode(Node,metaclass = RecieveEvent):
                 gps_msg.latitude=float(msg_data[0])
                 gps_msg.longitude=float(msg_data[1])
                 gps_msg.status.service=1
-                gps_msg.position_covariance[0]=0.0001
-                gps_msg.position_covariance[4]=0.0001
-                gps_msg.position_covariance[8]=0.0001
+                gps_msg.position_covariance[0]=0.001
+                gps_msg.position_covariance[4]=0.001
+                gps_msg.position_covariance[8]=0.001
 
                 #configure imu
                 x,y,z,w=quaternion_from_euler(0,0,float(msg_data[2]),'ryxz')
