@@ -12,7 +12,7 @@ class AndroidVPSNode(Node,metaclass = RecieveEvent):
         super().__init__('android_vps_node')
         #declare timer and publish rate
         self.time=time.time()
-        self.rate=0.05#set publish interval
+        self.rate=0.1#set publish interval
         #create puvlishers
         self.gps_publisher = self.create_publisher(NavSatFix,'gps/fix',1)
         self.imu_publisher = self.create_publisher(Imu,'imu/data',1)

@@ -11,7 +11,7 @@ class AndroidPoseNode(Node,metaclass = RecieveEvent):
         super().__init__('android_pose_node')
         #declare timer and publish rate
         self.time=time.time()
-        self.rate=0.05#set publish interval
+        self.rate=0.1#set publish interval
         #create puvlishers
         self.pose_publisher = self.create_publisher(PoseWithCovarianceStamped,'arcore/pose',1)
         #get ip address from enviroment value.
